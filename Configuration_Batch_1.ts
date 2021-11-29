@@ -41,7 +41,8 @@ export let config: Config = {
     // '../Features/Login/AP_Supervisor_Login.feature',
 
     //'../Features/ProjectCreation/ProjectCreation.feature',
-    '../Features/ProjectEdit/ProjectEdit.feature'
+    '../Features/ProjectEdit/ProjectEdit.feature',
+   // '../Features/DuProjectCreation/DuProjectCreation.feature'
 
     //'../Features/Logout/Logout.feature',
   ],
