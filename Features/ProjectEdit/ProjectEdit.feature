@@ -13,8 +13,8 @@ Feature: Project Edit
         Then "Admin" verifies if "success" message is displayed as "<ToastMessage>"
 
         Examples:
-            | ProjectName      | ProjectDescription        | ToastMessage                 |
-            | Automation_Demo1 | Automation_IB_Project_12 | Project Updated Successfully |
+            | ProjectName      | ProjectDescription      | ToastMessage                 |
+            | Automation_Demo1 | Automation_IB_Project_1 | Project Updated Successfully |
 
     Scenario Outline: Project edit - Project configuration - Document import configuration
         When "Admin" clicks on "Project Configuration" option
@@ -35,12 +35,12 @@ Feature: Project Edit
         And "Admin" enters validation message as "<Message>"
         And "Admin" clicks on the field quantity
         And "Admin" enters field quantity validation expression as "<quantityExpression>"
-        And "Admin" enters field quantity as "<quantityMessage>"
+       And "Admin" enters field quantity as "<quantityMessage>"
         And "Admin" clicks on save button in DU configuration
         Then "Admin" verifies if "success" message is displayed as "<ToastMessage1>"
         Then "Admin" verifies if "success" message is displayed as "<ToastMessage2>"
         Examples:
-           
+
             | Expression | Message          | quantityExpression | quantityMessage | ToastMessage2                                  | ToastMessage1                                    |
             | \d{8}      | Acceptsb8 digits | \d{4}([.])\d{2}    | 9999.99         | Successfully saved the DU Field Configurations | Successfully Configured the Duplicate Validation |
 

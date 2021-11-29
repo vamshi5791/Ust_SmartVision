@@ -18,7 +18,7 @@ export class ProjectEdit {
     invoiceValidationMessage = element(by.xpath("(//label[text()='Invoice Number']/following::input)[2]"))
     quantityDrodown = element(by.xpath("//div[text()='Quantity']"))
     quantityValidationExpression = element(by.xpath("//div[text()='Quantity']//following::legend[text()='Validation Expression']//following::input"))
-    quantityValidationMessage = element(by.xpath('//div[text()="Quantity"]//following::input[@class="smo-inputtext smo-input-legend ui-inputtext ui-corner-all ui-state-default smo-widget border-radius-du ng-pristine ng-valid ng-touched"]'))
+    quantityValidationMessage = element(by.xpath('//div[text()="Quantity"]//following::legend[text()="Validation Message"]//following::input[contains(@class,"smo-inputtext smo-input-legend ui-inputtext")]'))
     extractedFieldConfigurationSaveBtn = element(by.xpath("//div[@id='smo-accordiontab-2-content']//div[contains(@class,'smo-accordion-content smo-widget-content')]//div[contains(@role,'content')]//div[contains(@class,'d-flex flex-row justify-content-end mb-3')]//div//button[contains(@class,'smo-button smo-widget smo-state-default smo-button-default smo-corner-all smo-button-du smo-button-text-only')]"))
 
 
@@ -42,6 +42,10 @@ export class ProjectEdit {
 
     async dropDownWhenToExecuteClick(setPath: string) {
         await element(by.xpath('//span[text()="' + setPath + '"] //following::span[contains(@class,"smo-clickable fa fa-chevron-down")]')).click();
+    }
+    async QuantityMessage(message:string) {
+        await this.quantityValidationMessage.clear();
+        await this.quantityValidationMessage.sendKeys(message);
     }
 
   

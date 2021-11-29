@@ -68,6 +68,7 @@ When('{string} clicks on the field invoice number', async function (userRole) {
 When('{string} enters validation expression as {string}', async function (userRole, Expression) {
     try {
         await browser.wait(EC.visibilityOf(objProjectEdit.invoice), 100000)
+        await objProjectEdit.invoiceValidationExpression.clear(); 
         await objProjectEdit.invoiceValidationExpression.sendKeys(Expression); 
     } catch (error) {
         await console.log(error);
@@ -89,12 +90,6 @@ When('{string} enters validation message as {string}', async function (userRole,
 When('{string} clicks on the field quantity', async function (userRole) {
     try {
         await objProjectEdit.quantityDrodown.click();
-        // await browser.wait(EC.visibilityOf(objProjectEdit.quantityDrodown), 100000)
-        // await browser.sleep(3000)
-        // await objProjectEdit.quantityValidationExpression.sendKeys(quantityExpression);
-        // await browser.sleep(3000)
-        // await objProjectEdit.quantityValidationMessage.sendKeys(quantityMessage);
-
     } catch (error) {
         await console.log(error);
         throw userRole + " is unable to click on the field quantity and enter validation expression and message"
@@ -118,8 +113,10 @@ When('{string} enters field quantity as {string}', async function (userRole, qua
     try {
        
         await browser.wait(EC.visibilityOf(objProjectEdit.quantityDrodown), 100000)
-        await browser.sleep(3000)
-        await objProjectEdit.quantityValidationExpression.sendKeys(quantityMessage)
+        // await objProjectEdit.quantityValidationMessage.clear();
+        // await browser.sleep(3000)
+        // await objProjectEdit.quantityValidationMessage.sendKeys(quantityMessage)
+        await objProjectEdit.QuantityMessage(quantityMessage);
     } catch (error) {
         await console.log(error);
         throw userRole + " is unable to enters field quantity message"
